@@ -3,22 +3,26 @@
 <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
     body{
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         background-color: rgb(218, 218, 218);
-        height: auto;
     }
+
     section {
         width: 90%;
         margin: 5px auto;
-        height: auto;
     }
 
     #header {
+        position: relative;
         background-color: white;
         text-align: center;
         padding: 0px;
-        margin: -6px;
+        margin: 0;
     }
 
     #nav-container {
@@ -41,28 +45,43 @@
     .grid-container {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 1fr auto;
         text-align: center;
         grid-gap: 5%;
-        margin-top: 6px;
+        margin: 6px 0px;
         width: auto;
         height: auto;
+
+        @media (max-width: 650px) {
+            grid-template-columns: 1fr;
+            grid-auto-rows: auto;
+        }
     }
 
-    input {
+    input[type="email"] {
         margin: 1%;
-        font-size: 20px;
+        font-size: 16px;
         width: 25%;
+    }
+    
+    input[type="submit"] {
+        margin: 1%;
+        font-size: 16px;
+        width: 15%;
+
+        &:hover {
+            background-color: orange;
+            transition: background-color 2s;
+        }
     }
 
     .grid1 {
-        background-color: rgb(218, 218, 218);
+        /* background-color: rgb(218, 218, 218); */
         grid-column: 1/4;
     }
 
     .grid2 {
         background-color: rgb(218, 218, 218);
-        height: auto;
     }
 
     .grid3 {
@@ -78,13 +97,37 @@
         border-color: black;
         border-width: 1px;
         border-radius: 1%;
-        font-size: 20px;
+        font-size: 16px;
+        padding: 10px;
+        height: 400px;
     }
 
     #info-header {
         background-color: silver;
         margin: 0px auto;
         padding: 3px;
+    }
+
+    footer {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: white;
+    }
+
+    footer ul {
+            display: flex;
+            justify-content: flex-end;
+
+        }
+
+    footer ul li {
+        list-style: none;
+        padding: 0px 10px;
+    }
+
+    footer span {
+        display: flex;
+        justify-content: flex-end;
     }
 </style>
 
@@ -99,16 +142,16 @@
                 <img id="header-img" src="https://www.one-system.fr/wp-content/uploads/2016/06/logo_bmw-e1481489896389.png" alt="BMW Logo" height="90px" width="auto">
             </div>
             <div class="nav-link">
-                Home
+                <a href="file:///C:/Users/Chibi/Documents/Programming/landing-page/index.html">Home</a>
             </div>
             <div class="nav-link">
-                Features
+                <a href="#info">Features</a>
             </div>
             <div class="nav-link">
-                Pricing
+                <a href="#">Pricing</a>
             </div>
             <div class="nav-link">
-                History
+                <a href="#">History</a>
             </div>
         </div>
     </nav>
@@ -118,20 +161,26 @@
     <section>
         <div class="grid-container">
             <div class="grid1">
-                <img id="body-img" src=https://www.bmw.com.au/website/var/tmp/image-thumbnails/0/6774/thumb__960x540/bmw-m3-saloon-at-a-glance-header-1270x500.jpeg alt="BMW M3 Action shot" width="100%" height="auto">
+                <img id="body-img" src="https://www.bmw.com.au/website/var/tmp/image-thumbnails/0/6774/thumb__960x540/bmw-m3-saloon-at-a-glance-header-1270x500.jpeg" alt="BMW M3 Action shot" width="100%" height="auto">
                 <h2>The Brand New 2018 BMW M3 Sedan</h2>
-                <form id="form" action="">
-                    <input id="email" type="email" placeholder="Enter your email address here">
+                <form id="form" action="https://www.freecodecamp.com/email-submit">
+                    <input id="email" name="email" type="email" placeholder="Enter your email address here">
                     <br>
-                    <input id="submit" type="button" value="Get Started!">
+                    <input id="submit" type="submit" value="Get Started!">
                 </form>
+                <iframe id="video" width="640" height="480" source src="https://www.youtube.com/embed/?v=fLdodoEDtZ0" frameborder="0" allowfullscreen>
+                </iframe>
+                <br><br>
             </div>
+
             <div id="info" class="grid2">
                 <header id="info-header">
                     <h2>TOO POWERFUL.</h2>
                 </header>
                 <p>
-                    An uncompromising four-door high-performance sports car of breathtaking design. With an array of motorsport-inspired innovations. For even greater dynamism and even more agile handling. For adrenalin-steeped driving moments where one thing instantly becomes clear: this is about setting personal bests – the BMW M3 Sedan.
+                    An uncompromising four-door high-performance sports car of breathtaking design. With an array of motorsport-inspired 
+                    innovations. For even greater dynamism and even more agile handling. For adrenalin-steeped driving moments where one 
+                    thing instantly becomes clear: this is about setting personal bests – the BMW M3 Sedan.
                 </p>
             </div>
             <div id="info" class="grid3">
@@ -139,7 +188,10 @@
                     <h2>PUSH THE LIMITS.</h2>
                 </header>
                 <p>
-                    You can tell that the new BMW M3 Sedan is still a genuine athlete away from the racetrack. It always exhibits extremely precise, agile handling – above all in demanding driving situations.  The powerful M engine lays down its thrust in precisely measured doses onto the road, using the manual six-speed M transmission or the seven-speed double-clutch automatic transmission.
+                    You can tell that the new BMW M3 Sedan is still a genuine athlete away from the racetrack. It always exhibits 
+                    extremely precise, agile handling – above all in demanding driving situations.  The powerful M engine lays down 
+                    its thrust in precisely measured doses onto the road, using the manual six-speed M transmission or the seven-speed 
+                    double-clutch automatic transmission.
                 </p>
             </div>
             <div id="info" class="grid4">
@@ -147,11 +199,23 @@
                     <h2>COMPETITION PACKAGE.</h2>
                 </header>
                 <p>
-                    Thanks to an enhanced engine output and specially tuned Adaptive M suspension, the M3 Competition Sedan offers a noticeable increase in driving performance. The M sports exhaust system with black, chrome-plated twin exhaust pipes creates a powerful engine sound. The package also includes M lightweight sport seats and exclusive 20" M light star alloy wheels with mixed tyres.
+                    Thanks to an enhanced engine output and specially tuned Adaptive M suspension, the M3 Competition Sedan offers a 
+                    noticeable increase in driving performance. The M sports exhaust system with black, chrome-plated twin exhaust pipes 
+                    creates a powerful engine sound. The package also includes M lightweight sport seats and exclusive 20" M light star 
+                    alloy wheels with mixed tyres.
                 </p>
             </div>
         </div>
     </section>
 </body>
+
+<footer>
+    <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>    
+    <span>Copyright 2018, Chibi Njoku</span>
+</footer>
 
 </html>
