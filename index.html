@@ -7,6 +7,7 @@
         margin: 0;
         padding: 0;
     }
+
     body{
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         background-color: rgb(218, 218, 218);
@@ -22,14 +23,11 @@
         top: 0%;
         width: 100vw;
         background-color: white;
-        text-align: center;
         padding: 0px;
         margin: 0;
     }
 
     #nav-container {
-        display: flex;
-        flex-direction: row;
         font-weight: bold;
         font-size: 25px;
         text-align: center;
@@ -37,12 +35,27 @@
         background-color: white;  
     }
 
+    .nav-list-item {
+        height: 90%;
+        width: 50%;
+        padding: 5px 10px;
+        background-color: white;
+        list-style: none;
+    }
+
     .nav-link {
         height: 90%;
         width: 50%;
         padding: 5px 10px;
         background-color: white;
+        list-style: none;
     }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }   
     
     .grid-container {
         display: grid;
@@ -55,8 +68,10 @@
         height: auto;
     }
 
-    .grid-container @media (min-width: 650px) {
+    @media only screen and (max-width: 450px) {
+        .grid-container {
         grid-template-columns: 1fr;
+        }
     }
 
     input[type="email"] {
@@ -139,23 +154,23 @@
 
 <header id="header">
     <nav id="nav-bar">
-        <div id="nav-container">
-            <div class="nav-link">
+        <ul id="nav-container">
+            <li class="nav-list-item">
                 <img id="header-img" src="https://www.one-system.fr/wp-content/uploads/2016/06/logo_bmw-e1481489896389.png" alt="BMW Logo" height="90px" width="auto">
-            </div>
-            <div class="nav-link">
-                <a class="nav-link" href="file:///C:/Users/Chibi/Documents/Programming/landing-page/index.html">Home</a>
-            </div>
-            <div class="nav-link">
+            </li>
+            <li class="nav-list-item">
+                <a class="nav-link" href="#header">Home</a>
+            </li>
+            <li class="nav-list-item">
                 <a class="nav-link" href="#info">Features</a>
-            </div>
-            <div class="nav-link">
-                <a class="nav-link" href="#">Pricing</a>
-            </div>
-            <div class="nav-link">
-                <a class="nav-link" href="#">History</a>
-            </div>
-        </div>
+            </li>
+            <li class="nav-list-item">
+                <a class="nav-link" href="#form">Pricing</a>
+            </li>
+            <li class="nav-list-item">
+                <a class="nav-link" href="#footer">History</a>
+            </li>
+        </ul>
     </nav>
 </header>
 
@@ -170,7 +185,7 @@
                     <br>
                     <input id="submit" type="submit" value="Get Started!">
                 </form>
-                <iframe id="video" width="640" height="480" source src="https://www.youtube.com/embed/?v=fLdodoEDtZ0" frameborder="0" allowfullscreen>
+                <iframe id="video" width="640" height="480" source src="https://www.youtube-nocookie.com/embed/y8Yv4pnO7qc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen>
                 </iframe>
                 <br><br>
             </div>
@@ -211,7 +226,7 @@
     </section>
 </body>
 
-<footer>
+<footer id="footer">
     <ul>
         <li><a href="#">Privacy</a></li>
         <li><a href="#">Terms</a></li>
